@@ -71,7 +71,7 @@ module.exports = {
     devtool: process.env.NODE_ENV === 'production' ? 'none' : 'eval',
     output: {
         path: path.resolve(__dirname, 'build'),
-        filename: 'js/[name].[chunkhash].bundle.js'
+        filename: 'js/[name].bundle.js'
     },
     module: {
         rules: [
@@ -136,7 +136,8 @@ module.exports = {
                 title: route.title,
                 filename: route.name + '.html',
                 route: route,
-                dynamicMetaTags: route.dynamicMetaTags
+                dynamicMetaTags: route.dynamicMetaTags,
+                hash:true
             }, templateConfig));
         })
     ).concat([
