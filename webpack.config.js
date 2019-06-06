@@ -71,7 +71,7 @@ module.exports = {
     devtool: process.env.NODE_ENV === 'production' ? 'none' : 'eval',
     output: {
         path: path.resolve(__dirname, 'build'),
-        filename: 'js/[name].bundle.js'
+        filename: 'js/[name].[chunkhash].bundle.js'
     },
     module: {
         rules: [
@@ -165,7 +165,7 @@ module.exports = {
     ])
         .concat(process.env.NODE_ENV === 'production' ? [
             new webpack.optimize.UglifyJsPlugin({
-                sourceMap: true
+                sourceMap: false
             })
         ] : [])
         .concat([
